@@ -1,9 +1,25 @@
 package com.example.td6;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+import com.google.gson.annotations.SerializedName;
+
+@Entity(tableName = "repo")
 public class Repo {
+    @PrimaryKey
+    @ColumnInfo(name = "id")
     private int id;
+
+    @ColumnInfo(name = "name")
     private String name;
+
+    @SerializedName("full_name")
+    @ColumnInfo(name = "full_name" )
     private String full_name;
+
+    @ColumnInfo(name = "html_url")
     private String html_url;
 
     public Repo(int id, String name, String full_name, String html_url) {

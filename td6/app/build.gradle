@@ -29,6 +29,9 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "io.reactivex.rxjava3:rxjava:3.0.7"
+    implementation "com.github.akarnokd:rxjava3-retrofit-adapter:3.0.0"
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
@@ -38,5 +41,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation "androidx.room:room-runtime:2.3.0-alpha03"
+    implementation "androidx.room:room-ktx:2.3.0-alpha03"
+    implementation "androidx.room:room-rxjava3:2.3.0-alpha03"
 
 }

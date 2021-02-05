@@ -51,6 +51,9 @@ public class ContactsAdaptater extends RecyclerView.Adapter<ContactsAdaptater.Vi
 
         ImageView imageUrl = holder.imageurl;
         Glide.with(context).load(contact.getImageUrl()).into(imageUrl);
+
+        ImageView imageUrl2 = holder.imageurl2;
+        Glide.with(context).load(contact.getImageUrl()).into(imageUrl2);
     }
 
     @Override
@@ -62,6 +65,7 @@ public class ContactsAdaptater extends RecyclerView.Adapter<ContactsAdaptater.Vi
         public TextView firstNameTextView;
         public TextView lastnameTextView;
         public ImageView imageurl;
+        public ImageView imageurl2;
 
         public ViewHolder(View itemView){
             super(itemView);
@@ -69,6 +73,7 @@ public class ContactsAdaptater extends RecyclerView.Adapter<ContactsAdaptater.Vi
             firstNameTextView = (TextView) itemView.findViewById(R.id.prenom);
             lastnameTextView = (TextView) itemView.findViewById(R.id.nom);
             imageurl = (ImageView) itemView.findViewById(R.id.image);
+            imageurl2 = (ImageView) itemView.findViewById(R.id.image2);
         }
     }
 }
