@@ -58,13 +58,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ArrayList<PokemonEntity> temp = new ArrayList<PokemonEntity>();
-        Log.v("init","c'est parti!");
-        Log.println(Log.VERBOSE,"t","toto");
         PokemonRoomDatabase poke_db = PokemonRoomDatabase.getInstance(this);
         pokemonIdListGen app = (pokemonIdListGen) getApplicationContext();
-        //PokemonEntity poke2 = new PokemonEntity(1, "test", 2);
-        //poke_db.pokemonDao().deleteAll().blockingAwait();
-        //poke_db.pokemonDao().insertPokemon(poke2).blockingAwait();
         if(app.getGen() == 0){
             genNumber = 1;
         }
@@ -76,8 +71,6 @@ public class MainActivity extends AppCompatActivity {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(pokemons ->{
                     if(pokemons.isEmpty()){
-                        Log.println(Log.VERBOSE,"t","on est apres db");
-                        //  {
 
                         PokeapiGlitchService pokeGlitch = new Retrofit.Builder()
                                 .baseUrl(PokeapiGlitchService.ENDPOINT)
@@ -86,20 +79,17 @@ public class MainActivity extends AppCompatActivity {
                                 .build()
                                 .create(PokeapiGlitchService.class);
 
-                        Log.v("count:", "présent");
                         pokeGlitch.getPokemonGenCount().enqueue(new Callback<GenListCount>() {
                             @Override
                             public void onResponse(Call<GenListCount> call, Response<GenListCount> response) {
                                 int countgen1 = response.body().getGen(genNumber);
-                                Log.v("genNumber:", "i" + countgen1);
                                 int countgenPrec = 1;
                                 for (int i = genNumber; 1<i ; i--) {
-                                    countgenPrec = countgenPrec+ response.body().getGen(genNumber - 1);
-                                    countgen1 = countgen1 + response.body().getGen(genNumber - 1);
+                                    countgenPrec = countgenPrec+ response.body().getGen(i - 1);
+                                    countgen1 = countgen1 + response.body().getGen(i - 1);
                                 }
                                 for (int i = countgenPrec; i < countgen1; i++) {
-                                    Log.v("pokeG:", "i" + i);
-                                    ArrayList<PokemonEntity> temp2 = new ArrayList<PokemonEntity>();
+                                    ArrayList<ArrayList<PokemonEntity>> test = new ArrayList<ArrayList<PokemonEntity>>();
                                     PokemonEntity poke = new PokemonEntity(i, genNumber, "https://pokeres.bastionbot.org/images/pokemon/" + i + ".png");
                                     //poke_db.pokemonDao().insertPokemon(poke);
                                     temp.add(poke);
@@ -109,9 +99,24 @@ public class MainActivity extends AppCompatActivity {
                                                 .subscribeOn(Schedulers.single())
                                                 .subscribe();
                                         Collections.sort(temp, Comparator.comparing(PokemonEntity::getNumber));
+                                        for (int ii = 0; ii < 100; ii++) {
+                                            ArrayList<PokemonEntity> temp2 = new ArrayList<PokemonEntity>();
+                                            temp2.add(temp.get(ii));
+                                            ii++;
+                                            if (ii < temp.size()) {
+                                                temp2.add(temp.get(ii));
+                                            }
+                                            ii++;
+                                            if (ii < temp.size()) {
+                                                temp2.add(temp.get(ii));
+                                            }
+                                            test.add(temp2);
+                                        }
                                         app.setPokemonEntities(temp);
+                                        app.setPokemonEntitiesList(test);
                                         Intent intent = new Intent(MainActivity.this, PokemonList.class);
                                         startActivity(intent);
+                                        finish();
                                     }
                                 }
                             }

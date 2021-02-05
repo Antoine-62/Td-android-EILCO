@@ -25,6 +25,11 @@
                 <action android:name="android.intent.action.PokemonList" />
             </intent-filter>
         </activity>
+        <activity android:name=".pokemonInfo">
+            <intent-filter>
+                <action android:name="android.intent.action.pokemonInfo" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

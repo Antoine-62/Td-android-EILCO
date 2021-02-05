@@ -44,10 +44,20 @@ public class Pokemon {
     public FlavorTextEntry getFrenchText(){
         FlavorTextEntry def = this.flavor_text_entries.get(0);//retourne le premier par défaut
         for(int i = 0; i< this.flavor_text_entries.size(); i++){
-            Log.v("langue:", "l"+this.flavor_text_entries.get(i).getLanguage().getName());
             if(this.flavor_text_entries.get(i).getLanguage().getName().equals("fr")){
                 def = this.flavor_text_entries.get(i);
                 i = this.flavor_text_entries.size();
+            }
+        }
+        return def;
+    }
+
+    public Name getFrenchName(){
+        Name def = this.names.get(0);//retourne le premier par défaut
+        for(int i = 0; i< this.names.size(); i++){
+            if(this.names.get(i).getLanguage().getName().equals("fr")){
+                def = this.names.get(i);
+                i = this.names.size();
             }
         }
         return def;

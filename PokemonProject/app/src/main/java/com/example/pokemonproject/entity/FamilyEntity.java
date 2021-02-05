@@ -1,14 +1,20 @@
 package com.example.pokemonproject.entity;
 
+import android.os.Binder;
+import android.os.Parcelable;
+
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "details")
-public class FamilyEntity {
+public class FamilyEntity extends Binder {
     @PrimaryKey(autoGenerate = true)
     public int d_id;
+
+    @ColumnInfo(name = "number")
+    public int number;
 
     @ColumnInfo(name = "english_name")
     public String englishName;
@@ -31,19 +37,11 @@ public class FamilyEntity {
     @ColumnInfo(name = "poids")
     public int poids;
 
-    public FamilyEntity(int d_id, String englishName, String frenchName, String description, String type1, String type2, int taille, int poids) {
-        this.d_id = d_id;
-        this.englishName = englishName;
-        this.frenchName = frenchName;
-        this.description = description;
-        this.type1 = type1;
-        this.type2 = type2;
-        this.taille = taille;
-        this.poids = poids;
-    }
+    @ColumnInfo(name = "evolutions")
+    public String evolutions;
 
-    @Ignore
-    public FamilyEntity(String englishName, String frenchName, String description, String type1, String type2, int taille, int poids) {
+    public FamilyEntity(int number, String englishName, String frenchName, String description, String type1, String type2, int taille, int poids, String evolutions) {
+        this.number = number;
         this.englishName = englishName;
         this.frenchName = frenchName;
         this.description = description;
@@ -51,6 +49,7 @@ public class FamilyEntity {
         this.type2 = type2;
         this.taille = taille;
         this.poids = poids;
+        this.evolutions = evolutions;
     }
 
     public int getD_id() {
@@ -59,6 +58,14 @@ public class FamilyEntity {
 
     public void setD_id(int d_id) {
         this.d_id = d_id;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
     }
 
     public String getEnglishName() {
@@ -115,5 +122,13 @@ public class FamilyEntity {
 
     public void setPoids(int poids) {
         this.poids = poids;
+    }
+
+    public String getEvolutions() {
+        return evolutions;
+    }
+
+    public void setEvolutions(String evolutions) {
+        this.evolutions = evolutions;
     }
 }

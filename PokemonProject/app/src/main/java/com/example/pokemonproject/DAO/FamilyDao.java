@@ -11,7 +11,7 @@ import java.util.List;
 
 @Dao
 public interface FamilyDao {
-    @Query("SELECT * FROM details WHERE d_id is :pokemonId")
+    @Query("SELECT * FROM details WHERE number is :pokemonId")
     List<FamilyEntity> getAllByPokeId(int pokemonId);
 
     @Insert
