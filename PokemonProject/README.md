@@ -24,5 +24,5 @@ Le projet est un pokedex répertoriant tout les pokemons existants. Idée très 
 
 ## Conclusion
 
-Même si ce projet peut être considéré comme non terminé, je préfére garder le positif et voir que l'application rendu est "potable". Bien sûr, un peu déçu à cause du problème de la tabnav qui a pris une grosse partie du temps de réalisation. Mais je suis quand même satisfait, j'en ai pas mal d'enseignements, et ça change du dataflow dans lequel je travaille en entreprise. J'ai aussi appris qu'il falllait se renseigner sur les librairies utilisé par les sites de tutos.  
-Bien que j'ai bien aimé la matière, je ne désire pas travaillé dans ce domaine (enfin pour l'instant), je suis trop heureux dans le domaine que je travaille actuellement :) Je remercie mon professeur, monsieur Busin, pour nous avoir enseigné cette matière.
+Même si ce projet peut être considéré comme non terminé, je préfére garder le positif et voir que l'application rendu est "potable". Bien sûr, un peu déçu à cause du problème de la tabnav qui a pris une grosse partie du temps de réalisation. Mais je suis quand même satisfait, j'en ai tiré pas mal d'enseignements, et ça change du dataflow dans lequel je travaille en entreprise. J'ai aussi appris qu'il falllait se renseigner sur les librairies utilisées par les sites de tutos.  
+Bien que j'ai aimé la matière, je ne désire pas travaillé dans ce domaine (enfin pour l'instant), je suis trop heureux dans le domaine que je travaille actuellement :) Je remercie mon professeur, monsieur Busin, pour nous avoir enseigné cette matière.
